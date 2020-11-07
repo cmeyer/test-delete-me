@@ -1,0 +1,28 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Python package
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        python-version: [3.8]
+
+    steps:
+    - name: Debug
+      run: |
+        echo "github.event_name ${{ github.event_name }}"
+        echo "github.ref ${{ github.ref }}"
+        echo "github.event.ref ${{ github.event.ref }}"
+        echo "matrix.os ${{ matrix.os }}"
+        echo "matrix.python-version ${{ matrix.python-version }}"
